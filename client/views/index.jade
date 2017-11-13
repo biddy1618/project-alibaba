@@ -1,0 +1,19 @@
+doctype html
+html(ng-app='alibaba')
+  head
+    title= title
+    link(rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(name='viewport' content='initial-scale=1')
+    //- Angular Material Dependencies -->
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js')
+
+    script(src='//code.angularjs.org/1.3.14/angular-route.js')
+    script(src='//code.angularjs.org/1.3.14/angular-resource.js')
+    script(src='/alibaba.js')
+    script(src='/controllers/mainCtrl.js')
+  body(ng-view)

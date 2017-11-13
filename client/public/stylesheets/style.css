@@ -1,0 +1,8 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.module {
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+}

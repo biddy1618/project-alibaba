@@ -1,0 +1,117 @@
+<div layout="column" class="container">
+
+  <!-- Search module -->
+  <md-content layout="column" class="module md-whiteframe-z1">
+    <!-- Toolbar -->
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span>{{name}}</span>
+        <!-- fill up the space between left and right area -->
+        <span flex></span>
+        <!-- TODO: add user settings -->
+        <!-- <md-button>Settings</md-button> -->
+      </div>
+    </md-toolbar>
+
+    <!-- Body -->
+    <md-content layout-padding>
+      <!-- Budget input -->
+      <md-input-container>
+        <label>Budget</label>
+        <input type="text" input-number ng-model="searchInput.budget" ng-pattern="/^(\d)*$/" ng-keypress="onKeypress($event)" required>
+      </md-input-container>
+
+      <!-- Type radios -->
+      <md-radio-group layout="row" layout-align="center center" ng-model="searchInput.type">
+        <md-radio-button ng-repeat="type in types" ng-value="type">{{type}}</md-radio-button>
+      </md-radio-group>
+
+      <!-- Search button -->
+      <div layout="row" layout-align="center center">
+        <md-button type="button" ng-click="doSearch()">Search</md-button>
+      </div>
+    </md-content>
+  </md-content>
+
+  <!-- Loading -->
+  <div class="module" ng-show="searching" layout="row" layout-sm="column" layout-align="space-around">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+
+  <!-- Result module -->
+  <md-content layout="column" class="module md-whiteframe-z1" ng-show="computers.length > 0">
+    <!-- Toolbar -->
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span>Search Results</span>
+        <!-- fill up the space between left and right area -->
+        <span flex></span>
+        <!-- TODO: add user settings -->
+        <!-- <md-button>Settings</md-button> -->
+      </div>
+    </md-toolbar>
+
+    <!-- Body -->
+    <md-content layout="row">
+      <md-card flex ng-repeat="computer in computers">
+        <!-- <img src="card-image.png" class="md-card-image"> -->
+        <md-card-content>
+
+          <div layout="row" layout-align="center center">
+            <img src="{{computer.cpu.pictureUrl}}">
+          </div>
+          <a href="{{computer.cpu.productUrl}}" target="_blank">
+            <h2>{{computer.cpu.name}}</h2>
+          </a>
+          <h6>{{computer.cpu.merchant}}</h6>
+          <p>{{computer.cpu.description}}</p>
+          <p>{{computer.cpu.price}}</p>
+
+          <hr/>
+
+          <div layout="row" layout-align="center center">
+            <img src="{{computer.ram.pictureUrl}}">
+          </div>
+          <a href="{{computer.ram.productUrl}}" target="_blank">
+            <h2>{{computer.ram.name}}</h2>
+          </a>
+          <h6>{{computer.ram.merchant}}</h6>
+          <p>{{computer.ram.description}}</p>
+          <p>{{computer.ram.price}}</p>
+
+          <hr/>
+
+          <div layout="row" layout-align="center center">
+            <img src="{{computer.gpu.pictureUrl}}">
+          </div>
+          <a href="{{computer.gpu.productUrl}}" target="_blank">
+            <h2>{{computer.gpu.name}}</h2>
+          </a>
+          <h6>{{computer.gpu.merchant}}</h6>
+          <p>{{computer.gpu.description}}</p>
+          <p>{{computer.gpu.price}}</p>
+
+          <hr/>
+
+          <div layout="row" layout-align="center center">
+            <img src="{{computer.motherboard.pictureUrl}}">
+          </div>
+          <a href="{{computer.motherboard.productUrl}}" target="_blank">
+            <h2>{{computer.motherboard.name}}</h2>
+          </a>
+          <h6>{{computer.motherboard.merchant}}</h6>
+          <p>{{computer.motherboard.description}}</p>
+          <p>{{computer.motherboard.price}}</p>
+
+          <hr/>
+
+          <h2>Total: {{computer.price}} €</h2>
+        </md-card-content>
+        <!-- <md-card-footer> -->
+          <!-- Card footer -->
+        <!-- </md-card-footer> -->
+      </md-card>
+    </md-content>
+  </md-content>
+
+</div>
